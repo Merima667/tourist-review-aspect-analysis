@@ -2,8 +2,8 @@
 
 | Member | Responsibilities |
 |---|---|
-| Medina Alić | Data collection, cleaning and anonymisation; annotation guidelines |
-| Selma Melunović | Baseline, evaluation scripts, inter-annotator agreement |
+| Selma Melunović| Data collection, cleaning and anonymisation; annotation guidelines |
+| Medina Alić | Baseline, evaluation scripts, inter-annotator agreement |
 | Merima Balihodžić | Main method (XLM-R fine-tuning, translate-test); GitHub repository |
 
 All members annotate the test set and write the paper together.
