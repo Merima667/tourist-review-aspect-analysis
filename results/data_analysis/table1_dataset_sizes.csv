@@ -1,0 +1,5 @@
+dataset,reviews,sentences,sentences_without_aspect,percent_without_aspect
+en_train,315,1805,737,40.8
+en_val,35,195,85,43.6
+en_test,90,676,269,39.8
+tr_test,339,1376,511,37.1
