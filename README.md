@@ -48,7 +48,50 @@ The random seed is fixed (`SEED = 42` in `src/preprocess.py`), so the split is a
     notebooks/     experiments
 
 ## Pipeline
-To be added: pipeline diagram showing which components are our own work and which are external.
+
+```mermaid
+flowchart LR
+    subgraph DATA["Data"]
+        A1["SemEval-2016 Task 5<br/>English + Turkish<br/>(external)"]:::ext
+        A2["Bosnian reviews<br/>Sarajevo restaurants + hotels<br/>(own collection)"]:::own
+    end
+
+    subgraph PREP["Preprocessing"]
+        B1["download_data.py<br/>preprocess.py<br/>category mapping<br/>(own)"]:::own
+        B2["Anonymisation<br/>sentence splitting<br/>manual annotation<br/>(own)"]:::own
+    end
+
+    A1 --> B1
+    A2 --> B2
+
+    B1 --> C1["en_train / en_val / en_test<br/>tr_test"]:::own
+    B2 --> C2["bs_test<br/>(own test set)"]:::own
+
+    C1 --> D0["Data analysis<br/>analyze_data.py<br/>(own)"]:::own
+    C2 --> D0
+
+    subgraph MODELS["Methods"]
+        D1["Baseline<br/>(own)"]:::own
+        D2["XLM-R pretrained model<br/>(external)"]:::ext
+        D3["Fine-tuning on English<br/>(own)"]:::own
+        D4["Translate-test:<br/>machine translation to English<br/>(external)"]:::ext
+    end
+
+    C1 --> D1
+    C1 --> D3
+    D2 --> D3
+    C2 --> D4
+    D4 --> D3
+
+    D1 --> E["Evaluation<br/>F1 per aspect, per language,<br/>restaurant vs hotel<br/>(own)"]:::own
+    D3 --> E
+    C2 --> E
+
+    classDef own fill:#d4edda,stroke:#2e7d32,color:#000
+    classDef ext fill:#e3e8f0,stroke:#546e7a,color:#000
+```
+
+Green: our own work. Grey: external data, models or services.
 
 ## Status
 Milestone 3: data, preprocessing and data analysis done; baseline and Bosnian test set in progress.
