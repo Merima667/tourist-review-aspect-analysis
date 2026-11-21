@@ -5,7 +5,7 @@ NLP course project – Topic 6: Tourist review aspect analysis
 ## Team
 - Merima Balihodžić – Merima667
 - Medina Alić – medina1908
-- Selma Melunović– SelmaMelunovic
+- Selma Melunović – SelmaMelunovic
 
 ## Topic
 We detect which aspects (food, staff, price, location) tourists mention in reviews of
@@ -14,6 +14,8 @@ We test whether a model trained on English reviews works on Bosnian and other
 languages without retraining.
 
 ## Status
+Milestone 3: data, preprocessing, data analysis and the Bosnian test set are done; baseline in progress.
+
 ## Research question
 Does an aspect model trained on English reviews work on Bosnian and other languages
 without retraining?
@@ -44,8 +46,7 @@ The random seed is fixed (`SEED = 42` in `src/preprocess.py`), so the split is a
     data/          data instructions; raw/ and processed/ are not in the repository
     src/           Python scripts
     results/       tables, charts and model results
-    docs/          AI log, annotation guidelines, pipeline diagram
-    notebooks/     experiments
+    docs/          AI log, annotation guidelines
 
 ## Pipeline
 
@@ -93,5 +94,15 @@ flowchart LR
 
 Green: our own work. Grey: external data, models or services.
 
-## Status
-Milestone 3: data, preprocessing and data analysis done; baseline and Bosnian test set in progress.
+## Bosnian test set
+
+Our own test set of 106 Bosnian reviews (53 restaurant and 53 hotel reviews) of Sarajevo
+restaurants and hotels, collected manually from Google Maps between 14 and 19 November 2026,
+split into 432 sentences and annotated according to `docs/ANNOTATION_GUIDELINES.md`.
+
+The terms of use of Google Maps do not allow the review texts to be redistributed, so the file
+is not included in this repository. It is stored in the team's Google Drive folder, which is
+shared with the professor and the assistant. To use it, place `bs_test.csv` in `data/processed/`.
+
+The file has the same format as the SemEval files:
+`review_id, sentence_id, language, domain, text, food, staff, price, location`
