@@ -1,0 +1,6 @@
+aspect,observed_agreement,cohen_kappa
+food,0.93,0.768
+staff,0.854,0.669
+price,0.939,0.26
+location,0.953,0.562
+average,0.919,0.565
