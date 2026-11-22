@@ -18,8 +18,8 @@ Before a review is saved in the file:
 - Replace the names of people in the text (staff, the author, other guests) with `[NAME]`.
   Example: *"Konobar Amir je bio super."* → *"Konobar [NAME] je bio super."*
 - Remove phone numbers, email addresses and links.
-- Keep the name of the restaurant or hotel only if the website terms allow it; otherwise replace it with `[PLACE]`.
-
+- Names of restaurants and hotels are kept, because the review texts are not published (see README, Bosnian test set).
+ 
 ## 3. Splitting into sentences
 
 - One row in the CSV file is one sentence.
@@ -80,7 +80,7 @@ bs002,bs002:2,bs,hotel,"Doručak je bio bogat, a osoblje na recepciji ljubazno."
 
 ## 8. Inter-annotator agreement
 
-- Two team members annotate the same first 50 reviews **independently**, each in her own file, without AI tools and without discussing the labels.
+- Two team members annotate the same 50 randomly selected reviews (25 restaurant and 25 hotel reviews) **independently**, each in her own file, without AI tools and without discussing the labels.
 - Cohen's kappa is computed per aspect.
 - Disagreements are then discussed, and the final label is written in `data/processed/bs_test.csv`.
 
@@ -88,3 +88,15 @@ bs002,bs002:2,bs,hotel,"Doručak je bio bogat, a osoblje na recepciji ljubazno."
 
 - File: `data/processed/bs_test.csv`
 - Encoding: UTF-8 (in Excel: *Save As → CSV UTF-8*), so that č, ć, š, ž and đ are kept.
+
+## 10. Rules added during annotation
+
+These rules were agreed on during annotation of the Bosnian test set:
+
+1. **Each sentence is labelled on its own.** The rest of the review is used only to understand what a sentence refers to (e.g. who "he" is), not to add an opinion that is not in the sentence.
+2. **Speed of service is staff.** "Hrana bude brzo gotova." → staff = positive.
+3. **State of a room vs. service.** A sentence that only describes the state of a room is ignored ("Soba je bila prljava." → none). A sentence that describes a service that was not done is staff ("Ručnici nisu mijenjani 4 dana." → staff = negative).
+4. **"ok", "u redu", "osrednje", "prosječno" are neutral.**
+5. **"Lokacija" meaning "a place to visit" is a general opinion.** "Jedna od top lokacija za posjetiti." → none. Location is only where the place is: distance to the centre, surroundings, transport, view.
+6. **Parking is ignored**, like other facilities.
+7. **Value for money is price**, also when it is said through portions: "Puno dođe hrane, opravdava cijenu." → price = positive, food = positive.

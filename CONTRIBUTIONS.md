@@ -31,8 +31,12 @@ Responsibilities were updated on 13.11.2026: Merima took over SemEval data prepa
 | 14.11.2026 | Medina Alić | Added the draft pipeline diagram to the README |
 | 14.11.–19.11.2026 | Medina Alić | Collected and anonymised 106 Bosnian reviews of Sarajevo restaurants and hotels |
 | 19.11.–21.11.2026 | Medina Alić | Annotated the kappa sample; resolved disagreements with Selma; prepared the final Bosnian test set |
+| 19.11.–21.11.2026 | Selma Melunović | Annotated the kappa sample and resolved disagreements with Medina |
 | 20.11.2026 | Merima Balihodžić | Annotated part of the Bosnian test set |
 | 21.11.2026 | Medina Alić | Wrote the Dataset section of the paper |
 | 22.11.2026 | Merima Balihodžić | Added the Bosnian test set to the data analysis tables and chart |
 | 22.11.2026 | Merima Balihodžić | Wrote the Introduction of the paper |
 | 22.11.2026 | Merima Balihodžić | Wrote the SemEval data and category mapping part of the Dataset section |
+| 22.11.2026 | Selma Melunović | Added the TF-IDF baseline and first results for English, Turkish and Bosnian |
+| 22.11.2026 | Selma Melunović | Computed inter-annotator agreement (Cohen's kappa) |
+| 22.11.2026 | Selma Melunović | Wrote the Literature Review section of the paper |
