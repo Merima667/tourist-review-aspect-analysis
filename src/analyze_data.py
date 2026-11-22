@@ -19,18 +19,26 @@ OUT_DIR = os.path.join("results", "data_analysis")
 
 ASPECTS = ["food", "staff", "price", "location"]
 LABELS = ["positive", "negative", "neutral", "conflict"]
-DATASETS = ["en_train", "en_val", "en_test", "tr_test"]
+DATASETS = ["en_train", "en_val", "en_test", "tr_test", "bs_test"]
 
 # Colours for the charts (colour-blind friendly)
-DATASET_COLORS = {"en_train": "#2a78d6", "en_test": "#eb6834", "tr_test": "#1baf7a"}
+DATASET_COLORS = {"en_train": "#2a78d6", "en_test": "#eb6834",
+                  "tr_test": "#1baf7a", "bs_test": "#eda100"}
 LABEL_COLORS = {"positive": "#2a78d6", "negative": "#eb6834",
                 "neutral": "#a3a29c", "conflict": "#6250d6"}
 
 
 def load_datasets():
-    """Loads all processed CSV files into a dictionary {name: table}."""
-    return {name: pd.read_csv(os.path.join(PROCESSED_DIR, f"{name}.csv"), encoding="utf-8")
-            for name in DATASETS}
+    """Loads the processed CSV files into a dictionary {name: table}.
+    bs_test.csv is not in the repository (see data/README.md), so it is skipped if missing."""
+    data = {}
+    for name in DATASETS:
+        path = os.path.join(PROCESSED_DIR, f"{name}.csv")
+        if os.path.exists(path):
+            data[name] = pd.read_csv(path, encoding="utf-8")
+        else:
+            print(f"Skipping {name}: {path} not found")
+    return data
 
 
 def table_dataset_sizes(data):
@@ -64,17 +72,17 @@ def table_label_counts(data):
 
 def chart_aspect_frequency(data, out_path):
     """Chart 1: percentage of sentences that mention each aspect, per dataset."""
-    names = ["en_train", "en_test", "tr_test"]
-    bar_width = 0.25
-    fig, ax = plt.subplots(figsize=(8, 4.5))
+    names = [n for n in ["en_train", "en_test", "tr_test", "bs_test"] if n in data]
+    bar_width = 0.8 / len(names)
+    fig, ax = plt.subplots(figsize=(9, 4.5))
 
     for i, name in enumerate(names):
         df = data[name]
         percents = [100 * (df[aspect] != "none").mean() for aspect in ASPECTS]
-        positions = [x + (i - 1) * bar_width for x in range(len(ASPECTS))]
+        positions = [x + (i - (len(names) - 1) / 2) * bar_width for x in range(len(ASPECTS))]
         bars = ax.bar(positions, percents, width=bar_width - 0.03,
                       color=DATASET_COLORS[name], label=name)
-        ax.bar_label(bars, fmt="%.1f", fontsize=8, padding=2)
+        ax.bar_label(bars, fmt="%.1f", fontsize=7, padding=2)
 
     ax.set_xticks(range(len(ASPECTS)))
     ax.set_xticklabels(ASPECTS)
