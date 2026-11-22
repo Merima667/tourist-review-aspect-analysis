@@ -8,7 +8,7 @@
 
 All members annotate the Bosnian test set and write the paper together.
 
-Responsibilities were updated on 13.11.2026: Merima took over SemEval data preparation and preprocessing, and Medina and Selma swapped their parts compared with the proposal.*
+Responsibilities were updated on 13.11.2026: Merima took over SemEval data preparation and preprocessing, and Medina and Selma swapped their parts compared with the proposal.
 
 ## Log
 
@@ -21,8 +21,16 @@ Responsibilities were updated on 13.11.2026: Merima took over SemEval data prepa
 | 23.10.2026 | Medina Alić | Wrote the project proposal |
 | 24.10.2026 | Medina Alić | Added the AI tools log |
 | 25.10.2026 | Selma Melunović | Added the contributions file |
+| 13.11.2026 | Merima Balihodžić | Renamed contributions file to CONTRIBUTIONS.md, added folder structure and .gitignore |
+| 13.11.2026 | Merima Balihodžić | Added script to download SemEval-2016 data (src/download_data.py) |
+| 13.11.2026 | Merima Balihodžić | Explored SemEval categories and defined the mapping to our four aspects (src/explore_semeval.py, data/README.md) |
+| 13.11.2026 | Merima Balihodžić | Added preprocessing: cleaning, category mapping, train/validation split (src/preprocess.py) |
+| 13.11.2026 | Merima Balihodžić | Added data analysis with two tables and two charts (src/analyze_data.py) |
+| 13.11.2026 | Merima Balihodžić | Added requirements.txt and updated README with run instructions |
 | 14.11.2026 | Medina Alić | Wrote the annotation guidelines for the Bosnian test set |
 | 14.11.2026 | Medina Alić | Added the draft pipeline diagram to the README |
 | 14.11.–19.11.2026 | Medina Alić | Collected and anonymised 106 Bosnian reviews of Sarajevo restaurants and hotels |
 | 19.11.–21.11.2026 | Medina Alić | Annotated the kappa sample; resolved disagreements with Selma; prepared the final Bosnian test set |
+| 20.11.2026 | Merima Balihodžić | Annotated part of the Bosnian test set |
 | 21.11.2026 | Medina Alić | Wrote the Dataset section of the paper |
+| 22.11.2026 | Merima Balihodžić | Added the Bosnian test set to the data analysis tables and chart |
