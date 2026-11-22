@@ -34,3 +34,5 @@ Responsibilities were updated on 13.11.2026: Merima took over SemEval data prepa
 | 20.11.2026 | Merima Balihodžić | Annotated part of the Bosnian test set |
 | 21.11.2026 | Medina Alić | Wrote the Dataset section of the paper |
 | 22.11.2026 | Merima Balihodžić | Added the Bosnian test set to the data analysis tables and chart |
+| 22.11.2026 | Merima Balihodžić | Wrote the Introduction of the paper |
+| 22.11.2026 | Merima Balihodžić | Wrote the SemEval data and category mapping part of the Dataset section |
