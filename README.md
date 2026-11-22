@@ -14,7 +14,7 @@ We test whether a model trained on English reviews works on Bosnian and other
 languages without retraining.
 
 ## Status
-Milestone 3: data, preprocessing, data analysis and the Bosnian test set are done; baseline in progress.
+Milestone 3: data, preprocessing, data analysis and the Bosnian test set are done; baseline done.
 
 ## Research question
 Does an aspect model trained on English reviews work on Bosnian and other languages
@@ -38,6 +38,8 @@ Run all commands from the project root, in this order:
     python src/download_data.py      # downloads SemEval-2016 data to data/raw/
     python src/preprocess.py         # cleans, maps categories, splits data -> data/processed/
     python src/analyze_data.py       # tables and charts -> results/data_analysis/
+    python src/baseline.py         # TF-IDF baseline -> results/baseline/
+    python src/kappa.py            # inter-annotator agreement -> results/kappa/ (needs data/annotation/)
 
 The random seed is fixed (`SEED = 42` in `src/preprocess.py`), so the split is always the same.
 
